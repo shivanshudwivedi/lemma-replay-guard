@@ -59,7 +59,7 @@ class MarkdownReporter:
 
         lines.extend([
             "---",
-            "*Report generated automatically by [Lemma CI Regression Guard](https://lemma.ai) • Deterministic Mock Execution Sandbox*",
+            "*Report generated automatically by [Lemma CI Regression Guard](https://uselemma.ai) • Deterministic Mock Execution Sandbox*",
         ])
 
         return "\n".join(lines)

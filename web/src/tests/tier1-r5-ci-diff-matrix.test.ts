@@ -54,7 +54,7 @@ ${t.assertions.map((a) => `| ${a.description} | ✅ | Passed deterministic mock 
 </details>
 
 ---
-*Report generated automatically by [Lemma CI Regression Guard](https://lemma.ai) • Deterministic Mock Execution Sandbox*`;
+*Report generated automatically by [Lemma CI Regression Guard](https://uselemma.ai) • Deterministic Mock Execution Sandbox*`;
 
     const markdown = generatePrMarkdown(trace);
     assert.ok(markdown.includes('## 🟢 Lemma CI Regression Guard Report'));
@@ -62,7 +62,7 @@ ${t.assertions.map((a) => `| ${a.description} | ✅ | Passed deterministic mock 
     assert.ok(markdown.includes(`\`eval_${trace.id}\``));
     assert.ok(markdown.includes('✅ `RESOLVED`'));
     assert.ok(markdown.includes('<details open><summary>'));
-    assert.ok(markdown.includes('https://lemma.ai'));
+    assert.ok(markdown.includes('https://uselemma.ai'));
   });
 
   it('R5.3: Developer Export Center contains valid GitHub Actions YAML, MCP config, CLI snippets, and Python SDK code', () => {

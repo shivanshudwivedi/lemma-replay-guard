@@ -55,7 +55,7 @@ ${selectedTrace.assertions.map(a => `| ${a.description} | ✅ | Passed determini
 </details>
 
 ---
-*Report generated automatically by [Lemma CI Regression Guard](https://lemma.ai) • Deterministic Mock Execution Sandbox*`;
+*Report generated automatically by [Lemma CI Regression Guard](https://uselemma.ai) • Deterministic Mock Execution Sandbox*`;
 
   const handleCopyMarkdown = () => {
     navigator.clipboard.writeText(prMarkdown);

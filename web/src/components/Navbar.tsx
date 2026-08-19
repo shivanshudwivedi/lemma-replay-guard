@@ -72,12 +72,12 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             <a
-              href="https://lemma.ai"
+              href="https://uselemma.ai"
               target="_blank"
               rel="noreferrer"
-              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-zinc-900 hover:bg-zinc-800 text-white transition-all shadow-xs font-sans"
+              className="flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium bg-zinc-900 hover:bg-zinc-800 text-white transition-all shadow-xs font-sans cursor-pointer"
             >
-              <span>Lemma.ai</span>
+              <span>uselemma.ai</span>
               <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
             </a>
           </div>

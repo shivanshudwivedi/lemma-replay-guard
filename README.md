@@ -3,7 +3,7 @@
 
 [![CI Status](https://img.shields.io/badge/CI-Passing-10b981?style=flat-square&logo=githubactions)](https://github.com/shivanshudwivedi/lemma-replay-guard)
 [![YC Batch](https://img.shields.io/badge/YC-F25-ff6600?style=flat-square)](https://www.ycombinator.com)
-[![Pre-Seed Funding](https://img.shields.io/badge/Funding-$2.3M-10b981?style=flat-square)](https://lemma.ai)
+[![Pre-Seed Funding](https://img.shields.io/badge/Funding-$2.3M-10b981?style=flat-square)](https://uselemma.ai)
 [![Python](https://img.shields.io/badge/Python-3.11+-blue?style=flat-square&logo=python)](https://python.org)
 [![React](https://img.shields.io/badge/React-19-61dafb?style=flat-square&logo=react)](https://react.dev)
 [![License](https://img.shields.io/badge/License-Apache_2.0-black?style=flat-square)](LICENSE)

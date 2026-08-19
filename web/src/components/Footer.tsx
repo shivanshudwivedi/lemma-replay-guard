@@ -25,12 +25,12 @@ export const Footer: React.FC<FooterProps> = ({ onOpenExportModal }) => {
             CLI & CI Config
           </button>
           <a
-            href="https://lemma.ai"
+            href="https://uselemma.ai"
             target="_blank"
             rel="noreferrer"
-            className="hover:text-zinc-900 transition-colors flex items-center gap-1.5 font-medium"
+            className="hover:text-zinc-900 transition-colors flex items-center gap-1.5 font-medium cursor-pointer"
           >
-            <span>Lemma.ai</span>
+            <span>uselemma.ai</span>
             <ExternalLink className="w-3.5 h-3.5 text-zinc-400" />
           </a>
         </div>
