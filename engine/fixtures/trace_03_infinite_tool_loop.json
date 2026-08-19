@@ -1,0 +1,77 @@
+{
+  "trace_id": "tr_lemma_77192842",
+  "agent_id": "github-issue-triager",
+  "timestamp": "2026-08-18T16:05:12.800Z",
+  "status": "FAILURE",
+  "failure_type": "INFINITE_LOOP",
+  "failure_summary": "Agent entered an infinite 6-step retry cycle attempting to parse non-existent GitHub milestone ID.",
+  "system_prompt": "You are a GitHub issue triager. Assign labels and milestones to incoming issues using set_issue_milestone.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Add issue #402 to the v2.4 Release milestone."
+    }
+  ],
+  "steps": [
+    {
+      "step_index": 0,
+      "type": "LLM_CALL",
+      "model": "gpt-4o-mini",
+      "latency_ms": 320,
+      "tokens": { "prompt_tokens": 200, "completion_tokens": 30, "total_tokens": 230 },
+      "output_tool_calls": [{ "call_id": "c1", "name": "set_issue_milestone", "arguments": { "milestone_title": "v2.4 Release" } }]
+    },
+    {
+      "step_index": 1,
+      "type": "TOOL_EXECUTION",
+      "call_id": "c1",
+      "name": "set_issue_milestone",
+      "status": "ERROR",
+      "error_message": "MilestoneNotFound: 'v2.4 Release' does not exist.",
+      "latency_ms": 50
+    },
+    {
+      "step_index": 2,
+      "type": "LLM_CALL",
+      "model": "gpt-4o-mini",
+      "latency_ms": 310,
+      "tokens": { "prompt_tokens": 280, "completion_tokens": 35, "total_tokens": 315 },
+      "output_tool_calls": [{ "call_id": "c2", "name": "set_issue_milestone", "arguments": { "milestone_title": "v2.4 Release" } }]
+    },
+    {
+      "step_index": 3,
+      "type": "TOOL_EXECUTION",
+      "call_id": "c2",
+      "name": "set_issue_milestone",
+      "status": "ERROR",
+      "error_message": "MilestoneNotFound: 'v2.4 Release' does not exist.",
+      "latency_ms": 48
+    },
+    {
+      "step_index": 4,
+      "type": "LLM_CALL",
+      "model": "gpt-4o-mini",
+      "latency_ms": 330,
+      "tokens": { "prompt_tokens": 350, "completion_tokens": 35, "total_tokens": 385 },
+      "output_tool_calls": [{ "call_id": "c3", "name": "set_issue_milestone", "arguments": { "milestone_title": "v2.4 Release" } }]
+    },
+    {
+      "step_index": 5,
+      "type": "TOOL_EXECUTION",
+      "call_id": "c3",
+      "name": "set_issue_milestone",
+      "status": "ERROR",
+      "error_message": "MilestoneNotFound: 'v2.4 Release' does not exist.",
+      "latency_ms": 52
+    }
+  ],
+  "metrics": {
+    "total_latency_ms": 1110,
+    "total_tokens": 930,
+    "cost_usd": 0.00032
+  },
+  "metadata": {
+    "repo": "acme/agent-framework",
+    "issue_id": 402
+  }
+}

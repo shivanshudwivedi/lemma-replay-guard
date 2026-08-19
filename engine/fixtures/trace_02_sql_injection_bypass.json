@@ -1,0 +1,51 @@
+{
+  "trace_id": "tr_lemma_99210411",
+  "agent_id": "analytics-copilot",
+  "timestamp": "2026-08-18T15:10:44.200Z",
+  "status": "FAILURE",
+  "failure_type": "SCHEMA_VIOLATION",
+  "failure_summary": "Agent generated raw SQL string with unescaped user filter instead of parameterized arguments map.",
+  "system_prompt": "You are an analytics assistant. Query the analytics warehouse using execute_query with parameterized arguments {query_name: str, params: dict}.",
+  "messages": [
+    {
+      "role": "user",
+      "content": "Show me total active seats for organization 'O'Reilly Media' in Q3."
+    }
+  ],
+  "steps": [
+    {
+      "step_index": 0,
+      "type": "LLM_CALL",
+      "model": "claude-3-5-sonnet",
+      "latency_ms": 1100,
+      "tokens": { "prompt_tokens": 540, "completion_tokens": 70, "total_tokens": 610 },
+      "output_tool_calls": [
+        {
+          "call_id": "call_sql_err_01",
+          "name": "execute_query",
+          "arguments": {
+            "raw_sql": "SELECT COUNT(*) FROM seats WHERE org_name = 'O'Reilly Media' AND quarter = 'Q3'"
+          }
+        }
+      ]
+    },
+    {
+      "step_index": 1,
+      "type": "TOOL_EXECUTION",
+      "call_id": "call_sql_err_01",
+      "name": "execute_query",
+      "status": "ERROR",
+      "error_message": "SQLSyntaxError: syntax error at or near 'Reilly'. Missing parameters map, raw_sql execution is disallowed.",
+      "latency_ms": 30
+    }
+  ],
+  "metrics": {
+    "total_latency_ms": 1130,
+    "total_tokens": 610,
+    "cost_usd": 0.00267
+  },
+  "metadata": {
+    "environment": "production",
+    "region": "us-east-1"
+  }
+}

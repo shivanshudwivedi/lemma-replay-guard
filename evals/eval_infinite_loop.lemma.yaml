@@ -1,0 +1,59 @@
+schema_version: v1.0
+eval_id: eval_github-issue-triager_tr_lemma
+source_trace_id: tr_lemma_77192842
+agent_id: github-issue-triager
+created_at: '2026-08-18T16:05:12.800Z'
+category: regression_guard
+description: 'Auto-generated regression guard from production failure: Agent entered
+  an infinite 6-step retry cycle attempting to parse non-existent GitHub milestone
+  ID.'
+baseline:
+  model: gpt-4o-mini
+  total_latency_ms: 1110
+  total_tokens: 930
+  cost_usd: 0.00032
+  status: FAILURE
+  failure_type: INFINITE_LOOP
+input:
+  system_prompt: You are a GitHub issue triager. Assign labels and milestones to incoming
+    issues using set_issue_milestone.
+  user_input: 'Add issue #402 to the v2.4 Release milestone.'
+  history: []
+mock_harness:
+  tools:
+  - name: set_issue_milestone
+    match:
+      type: any
+      args: null
+      required_keys: null
+      forbidden_keys: null
+      regex_patterns: null
+    response:
+      status: mocked_success
+      call_id: c1
+    error: null
+    latency_sim_ms: 30
+    sequential_responses: null
+  default_behavior: fail_on_unmatched
+assertions:
+- type: no_error_steps
+  tool_name: null
+  keys: null
+  count: null
+  phrase: null
+  required: true
+  description: Agent must not trigger unhandled error steps in execution path.
+- type: max_tool_steps
+  tool_name: null
+  keys: null
+  count: 2
+  phrase: null
+  required: true
+  description: 'Prevent infinite loop: maximum 2 tool invocations'
+- type: tool_called
+  tool_name: set_issue_milestone
+  keys: null
+  count: null
+  phrase: null
+  required: true
+  description: Agent must execute tool 'set_issue_milestone'

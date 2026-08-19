@@ -1,0 +1,51 @@
+schema_version: v1.0
+eval_id: eval_analytics-copilot_tr_lemma
+source_trace_id: tr_lemma_99210411
+agent_id: analytics-copilot
+created_at: '2026-08-18T15:10:44.200Z'
+category: regression_guard
+description: 'Auto-generated regression guard from production failure: Agent generated
+  raw SQL string with unescaped user filter instead of parameterized arguments map.'
+baseline:
+  model: claude-3-5-sonnet
+  total_latency_ms: 1130
+  total_tokens: 610
+  cost_usd: 0.00267
+  status: FAILURE
+  failure_type: SCHEMA_VIOLATION
+input:
+  system_prompt: 'You are an analytics assistant. Query the analytics warehouse using
+    execute_query with parameterized arguments {query_name: str, params: dict}.'
+  user_input: Show me total active seats for organization 'O'Reilly Media' in Q3.
+  history: []
+mock_harness:
+  tools:
+  - name: execute_query
+    match:
+      type: any
+      args: null
+      required_keys: null
+      forbidden_keys: null
+      regex_patterns: null
+    response:
+      status: mocked_success
+      call_id: call_sql_err_01
+    error: null
+    latency_sim_ms: 30
+    sequential_responses: null
+  default_behavior: fail_on_unmatched
+assertions:
+- type: no_error_steps
+  tool_name: null
+  keys: null
+  count: null
+  phrase: null
+  required: true
+  description: Agent must not trigger unhandled error steps in execution path.
+- type: tool_called
+  tool_name: execute_query
+  keys: null
+  count: null
+  phrase: null
+  required: true
+  description: Agent must execute tool 'execute_query'
